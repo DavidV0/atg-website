@@ -34,6 +34,7 @@
     <div class="max-w-2xl mx-auto">
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Name Field -->
           <div>
             <label
               for="name"
@@ -47,7 +48,22 @@
               class="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-gray-400 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Your name"
             />
+            <div
+              *ngIf="
+                contactForm.get('name')?.touched &&
+                contactForm.get('name')?.invalid
+              "
+            >
+              <small
+                class="text-red-500"
+                *ngIf="contactForm.get('name')?.errors?.['required']"
+              >
+                Name is required.
+              </small>
+            </div>
           </div>
+
+          <!-- Email Field -->
           <div>
             <label
               for="email"
@@ -61,9 +77,64 @@
               class="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-gray-400 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="your@email.com"
             />
+            <div
+              *ngIf="
+                contactForm.get('email')?.touched &&
+                contactForm.get('email')?.invalid
+              "
+            >
+              <small
+                class="text-red-500"
+                *ngIf="contactForm.get('email')?.errors?.['required']"
+              >
+                Email is required.
+              </small>
+              <small
+                class="text-red-500"
+                *ngIf="contactForm.get('email')?.errors?.['email']"
+              >
+                Please enter a valid email.
+              </small>
+            </div>
           </div>
         </div>
 
+        <!-- Phone Field -->
+        <div>
+          <label
+            for="phone"
+            class="block text-sm font-medium text-gray-300 mb-2"
+            >Phone</label
+          >
+          <input
+            type="text"
+            id="phone"
+            formControlName="phone"
+            class="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-gray-400 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Your phone number"
+          />
+          <div
+            *ngIf="
+              contactForm.get('phone')?.touched &&
+              contactForm.get('phone')?.invalid
+            "
+          >
+            <small
+              class="text-red-500"
+              *ngIf="contactForm.get('phone')?.errors?.['required']"
+            >
+              Phone number is required.
+            </small>
+            <small
+              class="text-red-500"
+              *ngIf="contactForm.get('phone')?.errors?.['pattern']"
+            >
+              Please enter a valid phone number (10-15 digits).
+            </small>
+          </div>
+        </div>
+
+        <!-- Subject Field -->
         <div>
           <label
             for="subject"
@@ -77,8 +148,22 @@
             class="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-gray-400 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="What's your project about?"
           />
+          <div
+            *ngIf="
+              contactForm.get('subject')?.touched &&
+              contactForm.get('subject')?.invalid
+            "
+          >
+            <small
+              class="text-red-500"
+              *ngIf="contactForm.get('subject')?.errors?.['required']"
+            >
+              Subject is required.
+            </small>
+          </div>
         </div>
 
+        <!-- Message Field -->
         <div>
           <label
             for="message"
@@ -92,8 +177,22 @@
             class="w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder-gray-400 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Tell us about your project..."
           ></textarea>
+          <div
+            *ngIf="
+              contactForm.get('message')?.touched &&
+              contactForm.get('message')?.invalid
+            "
+          >
+            <small
+              class="text-red-500"
+              *ngIf="contactForm.get('message')?.errors?.['required']"
+            >
+              Message is required.
+            </small>
+          </div>
         </div>
 
+        <!-- Submit Button -->
         <button
           type="submit"
           [disabled]="!contactForm.valid"
@@ -101,6 +200,14 @@
         >
           Send Message
         </button>
+
+        <!-- Success Message -->
+        <div
+          *ngIf="successMessage"
+          class="mt-4 text-blue-500 text-center font-medium"
+        >
+          {{ successMessage }}
+        </div>
       </form>
 
       <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -108,19 +215,21 @@
           class="text-center p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm"
         >
           <h3 class="font-medium mb-2">Email</h3>
-          <p class="text-gray-400">contact(at)atg.com</p>
+          <a href="mailto:contact@atg-at.net" class="text-gray-400"
+            >contact&#64;atg-at.net</a
+          >
         </div>
         <div
           class="text-center p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm"
         >
           <h3 class="font-medium mb-2">Phone</h3>
-          <p class="text-gray-400">+1 (555) 123-4567</p>
+          <p class="text-gray-400">00 43 66066191590</p>
         </div>
         <div
           class="text-center p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm"
         >
           <h3 class="font-medium mb-2">Location</h3>
-          <p class="text-gray-400">Your City, Country</p>
+          <p class="text-gray-400">Linz, Austria</p>
         </div>
       </div>
     </div>

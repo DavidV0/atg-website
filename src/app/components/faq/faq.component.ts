@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.scss',
 })
@@ -37,7 +38,7 @@ export class FaqComponent {
     {
       question: 'What technologies do you use?',
       answer:
-        'We use modern technologies including Angular, React, Node.js, and other cutting-edge tools depending on project requirements.',
+        'We use modern technologies including Angular, Vue, Node.js, Ptyhon, Django & Rest Framework and other cutting-edge tools depending on project requirements.',
       isOpen: false,
     },
   ];
