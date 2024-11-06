@@ -20,6 +20,7 @@ export class ContactComponent {
   contactForm: FormGroup;
   successMessage: string | null = null;
   errorMessage: string | null = null;
+  isSubmitting: boolean = false;
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -35,7 +36,9 @@ export class ContactComponent {
   }
 
   onSubmit() {
-    if (this.contactForm.valid) {
+    if (this.contactForm.valid && !this.isSubmitting) {
+      this.isSubmitting = true;
+
       const formData = this.contactForm.value;
 
       emailjs
@@ -55,11 +58,17 @@ export class ContactComponent {
         .then(() => {
           this.successMessage = 'Message sent successfully!';
           this.contactForm.reset();
-          setTimeout(() => (this.successMessage = null), 3000);
+          setTimeout(() => {
+            this.successMessage = null;
+            this.isSubmitting = false;
+          }, 3000);
         })
         .catch(() => {
           this.errorMessage = 'Failed to send message. Please try again later.';
-          setTimeout(() => (this.errorMessage = null), 3000);
+          setTimeout(() => {
+            this.errorMessage = null;
+            this.isSubmitting = false;
+          }, 3000);
         });
     }
   }
