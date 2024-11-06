@@ -208,6 +208,14 @@
         >
           {{ successMessage }}
         </div>
+
+        <!-- Error Message -->
+        <div
+          *ngIf="errorMessage"
+          class="mt-4 text-red-500 text-center font-medium"
+        >
+          {{ errorMessage }}
+        </div>
       </form>
 
       <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">

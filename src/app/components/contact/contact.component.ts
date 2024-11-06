@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import emailjs from '@emailjs/browser';
 import {
   FormBuilder,
   FormGroup,
@@ -18,6 +19,7 @@ import {
 export class ContactComponent {
   contactForm: FormGroup;
   successMessage: string | null = null;
+  errorMessage: string | null = null;
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -34,13 +36,31 @@ export class ContactComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-      this.successMessage = 'Message sent successfully!';
-      this.contactForm.reset();
+      const formData = this.contactForm.value;
 
-      setTimeout(() => {
-        this.successMessage = null;
-      }, 3000);
+      emailjs
+        .send(
+          'service_skwyujm',
+          'template_0aey4bh',
+          {
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            phone: formData.phone,
+            to_name: 'Alpha Technology Group Team',
+          },
+          'y0ctdh78lk2QVv9n0'
+        )
+        .then(() => {
+          this.successMessage = 'Message sent successfully!';
+          this.contactForm.reset();
+          setTimeout(() => (this.successMessage = null), 3000);
+        })
+        .catch(() => {
+          this.errorMessage = 'Failed to send message. Please try again later.';
+          setTimeout(() => (this.errorMessage = null), 3000);
+        });
     }
   }
 }
