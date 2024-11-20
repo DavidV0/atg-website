@@ -19,26 +19,25 @@
       >
         ✨
       </span>
-      <span class="text-white/80"
-        >YOUR COMPANY'S APPROACH TO WEB DEVELOPMENT</span
-      >
+      <span class="text-white/80">{{
+        "home.companyApproach" | translate
+      }}</span>
     </div>
 
     <h1
       class="max-w-4xl mx-auto text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8"
     >
-      We create powerful websites that drive your business forward
+      {{ "home.heroTitle" | translate }}
     </h1>
 
     <p class="max-w-2xl mx-auto text-xl text-gray-400 mb-12">
-      Transform your online presence with our cutting-edge web development
-      solutions. We build websites that convert visitors into customers.
+      {{ "home.heroDescription" | translate }}
     </p>
     <a
       routerLink="/services"
-      class="inline-flex h-12 items-center justify-center rounded-md border border-white/10 bg-white/5 px-8 text-base font-medium text-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 w-full sm:w-auto backdrop-blur-sm"
+      class="inline-flex h-12 items-center justify-center rounded-md bg-blue-600 px-8 text-base font-medium text-white hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full sm:w-auto backdrop-blur-sm"
     >
-      View our services
+      {{ "home.viewServices" | translate }}
     </a>
   </div>
 
@@ -49,33 +48,33 @@
         class="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors"
       >
         <h3 class="text-xl font-semibold mb-3">
-          <i class="fas fa-laptop-code mr-2"></i>Custom Websites
+          <i class="fas fa-laptop-code mr-2"></i
+          >{{ "home.customWebsites" | translate }}
         </h3>
         <p class="text-gray-400">
-          We design and develop beautiful, responsive websites that reflect your
-          brand and engage your audience.
+          {{ "home.customWebsitesDescription" | translate }}
         </p>
       </div>
       <div
         class="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors"
       >
         <h3 class="text-xl font-semibold mb-3">
-          <i class="fas fa-code-branch mr-2"></i>Web Applications
+          <i class="fas fa-code-branch mr-2"></i
+          >{{ "home.webApplications" | translate }}
         </h3>
         <p class="text-gray-400">
-          From simple tools to complex systems, we build web applications that
-          streamline your business processes.
+          {{ "home.webApplicationsDescription" | translate }}
         </p>
       </div>
       <div
         class="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-colors"
       >
         <h3 class="text-xl font-semibold mb-3">
-          <i class="fas fa-tools mr-2"></i>Ongoing Support
+          <i class="fas fa-tools mr-2"></i
+          >{{ "home.ongoingSupport" | translate }}
         </h3>
         <p class="text-gray-400">
-          We provide continuous support and maintenance to ensure your digital
-          presence remains strong and up-to-date.
+          {{ "home.ongoingSupportDescription" | translate }}
         </p>
       </div>
     </div>
@@ -93,12 +92,9 @@
       />
     </div>
     <div class="space-y-6">
-      <h2 class="text-3xl font-bold">Our Mission</h2>
+      <h2 class="text-3xl font-bold">{{ "home.mission" | translate }}</h2>
       <p class="text-gray-400">
-        At Alpha Technology Group, we believe in the power of technology to
-        transform businesses and enhance user experiences. Our mission is to
-        deliver innovative web solutions that help our clients succeed in the
-        digital landscape.
+        {{ "home.missionDescription" | translate }}
       </p>
       <div class="space-y-4">
         <div class="flex items-start gap-4">
@@ -108,10 +104,11 @@
             <span class="text-blue-400">🎯</span>
           </div>
           <div>
-            <h3 class="font-medium mb-1">Innovation First</h3>
+            <h3 class="font-medium mb-1">
+              {{ "home.innovationFirst" | translate }}
+            </h3>
             <p class="text-gray-400">
-              We stay ahead of the curve with cutting-edge technologies and
-              methodologies.
+              {{ "home.innovationFirstDescription" | translate }}
             </p>
           </div>
         </div>
@@ -122,10 +119,11 @@
             <span class="text-blue-400">💡</span>
           </div>
           <div>
-            <h3 class="font-medium mb-1">Client Success</h3>
+            <h3 class="font-medium mb-1">
+              {{ "home.clientSuccess" | translate }}
+            </h3>
             <p class="text-gray-400">
-              Your success is our success. We're committed to delivering results
-              that exceed expectations.
+              {{ "home.clientSuccessDescription" | translate }}
             </p>
           </div>
         </div>
@@ -136,10 +134,11 @@
             <span class="text-blue-400">🤝</span>
           </div>
           <div>
-            <h3 class="font-medium mb-1">Partnership Approach</h3>
+            <h3 class="font-medium mb-1">
+              {{ "home.partnershipApproach" | translate }}
+            </h3>
             <p class="text-gray-400">
-              We work closely with our clients, forming long-lasting
-              partnerships built on trust.
+              {{ "home.partnershipApproachDescription" | translate }}
             </p>
           </div>
         </div>
@@ -152,7 +151,7 @@
       routerLink="/contact"
       class="inline-flex h-12 items-center justify-center rounded-md bg-blue-600 px-8 text-base font-medium text-white transition-colors hover:bg-blue-700 z-10 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full sm:w-auto"
     >
-      Get started — it's free
+      {{ "home.getStarted" | translate }}
     </a>
   </div>
 </div>

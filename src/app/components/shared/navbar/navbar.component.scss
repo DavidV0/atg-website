@@ -12,3 +12,23 @@ a {
 .logo {
   height: 10vh;
 }
+
+.language {
+  cursor: pointer;
+}
+.language-mobile {
+  display: none;
+  color: rgb(36, 99, 235);
+}
+.language-desktop {
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .language-desktop {
+    display: none;
+  }
+  .language-mobile {
+    display: block;
+  }
+}

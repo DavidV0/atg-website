@@ -19,17 +19,17 @@
       <a
         routerLink="/about"
         class="text-sm text-gray-300 hover:text-white transition-colors"
-        >About us</a
+        >{{ "header.about" | translate }}</a
       >
       <a
         routerLink="/services"
         class="text-sm text-gray-300 hover:text-white transition-colors"
-        >Our Services</a
+        >{{ "header.services" | translate }}</a
       >
       <a
         routerLink="/faq"
         class="text-sm text-gray-300 hover:text-white transition-colors"
-        >FAQ</a
+        >{{ "header.faq" | translate }}</a
       >
     </div>
 
@@ -38,8 +38,11 @@
         routerLink="/contact"
         class="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
       >
-        Contact us
+        {{ "header.contact" | translate }}
       </a>
+      <div class="language-desktop" id="len" (click)="translating()">
+        {{ language }}
+      </div>
 
       <!-- Burger Menu Button -->
       <button
@@ -88,22 +91,28 @@
         class="text-lg text-gray-300 hover:text-white transition-colors"
         (click)="isMenuOpen = false"
       >
-        About us
+        {{ "header.about" | translate }}
       </a>
       <a
         routerLink="/services"
         class="text-lg text-gray-300 hover:text-white transition-colors"
         (click)="isMenuOpen = false"
       >
-        Our Services
+        {{ "header.services" | translate }}
       </a>
       <a
         routerLink="/faq"
         class="text-lg text-gray-300 hover:text-white transition-colors"
         (click)="isMenuOpen = false"
       >
-        FAQ
+        {{ "header.faq" | translate }}
       </a>
+
+      <div class="language" id="len" (click)="translating()">
+        <p class="language-mobile">
+          {{ language }}
+        </p>
+      </div>
     </div>
   </div>
 </header>
