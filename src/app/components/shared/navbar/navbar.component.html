@@ -31,6 +31,11 @@
         class="text-sm text-gray-300 hover:text-white transition-colors"
         >{{ "header.faq" | translate }}</a
       >
+      <a
+        routerLink="/blog"
+        class="text-sm text-gray-300 hover:text-white transition-colors"
+        >Blog</a
+      >
     </div>
 
     <div class="flex items-center gap-4 pd">
@@ -106,6 +111,13 @@
         (click)="isMenuOpen = false"
       >
         {{ "header.faq" | translate }}
+      </a>
+      <a
+        routerLink="/blog"
+        class="text-lg text-gray-300 hover:text-white transition-colors"
+        (click)="isMenuOpen = false"
+      >
+        Blog
       </a>
 
       <div class="language" id="len" (click)="translating()">
