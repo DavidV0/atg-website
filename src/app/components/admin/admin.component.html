@@ -1,0 +1,22 @@
+<div class="admin-container">
+  <form [formGroup]="blogForm" (ngSubmit)="postBlog()" class="blog-form">
+    <input
+      formControlName="title"
+      type="text"
+      placeholder="Blog Title"
+      class="input-title"
+    />
+    <quill-editor formControlName="content" class="editor"></quill-editor>
+    <button type="submit" class="submit-button">Post Blog</button>
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+  </form>
+
+  <div class="post-list">
+    <div *ngFor="let post of blogPosts$ | async" class="post-item">
+      <h3 class="post-title">{{ post.title }}</h3>
+      <button (click)="deletePost(post.id)" class="delete-button">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

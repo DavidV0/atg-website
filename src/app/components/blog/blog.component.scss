@@ -1,6 +1,7 @@
 .container {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 20vh;
 }
 
 h1 {
@@ -9,4 +10,43 @@ h1 {
 
 .bg-white {
   background-color: #fff;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.text-gray-500 {
+  color: #666;
+}
+
+.text-black {
+  color: #000;
+}
+
+p,
+h2,
+div {
+  color: #333;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hover\:shadow-lg:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.more-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.more-button:hover {
+  background-color: #0056b3;
 }

@@ -7,6 +7,10 @@ import { FaqComponent } from './components/faq/faq.component';
 import { ImprintComponent } from './components/imprint/imprint.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/login/login.component';
+import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,4 +21,7 @@ export const routes: Routes = [
   { path: 'imprint', component: ImprintComponent },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog/:id', component: BlogDetailComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
 ];
