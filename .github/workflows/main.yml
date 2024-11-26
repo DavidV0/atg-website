@@ -21,6 +21,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Create environment.ts
+        run: |
+          echo "export const environment = {" > src/environments/environment.ts
+          echo "  production: true," >> src/environments/environment.ts
+          echo "  firebase: {" >> src/environments/environment.ts
+          echo "    apiKey: '${{ secrets.FIREBASE_API_KEY }}'," >> src/environments/environment.ts
+          echo "    authDomain: 'your-auth-domain'," >> src/environments/environment.ts
+          echo "    projectId: 'your-project-id'," >> src/environments/environment.ts
+          echo "    storageBucket: 'your-storage-bucket'," >> src/environments/environment.ts
+          echo "    messagingSenderId: 'your-messaging-sender-id'," >> src/environments/environment.ts
+          echo "    appId: 'your-app-id'," >> src/environments/environment.ts
+          echo "    measurementId: 'your-measurement-id'" >> src/environments/environment.ts
+          echo "  }" >> src/environments/environment.ts
+          echo "};" >> src/environments/environment.ts
+
       - name: Build Project
         run: npm run build --prod
 
