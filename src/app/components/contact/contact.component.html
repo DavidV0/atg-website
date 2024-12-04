@@ -13,7 +13,7 @@
   <div class="relative container mx-auto px-4 pt-32 pb-24">
     <div class="text-center mb-16">
       <div
-        class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm backdrop-blur-sm mb-8"
+        class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm backdrop-blur-sm mb-8 hero-badge"
       >
         <span
           class="size-4 rounded-full bg-blue-500/10 flex items-center justify-center"
@@ -21,11 +21,11 @@
           ✨
         </span>
         <span class="text-white/80">{{
-          "contact.getInTouch" | translate
+          "contact.title" | translate
         }}</span>
       </div>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-        {{ "contact.letsBuild" | translate }}
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 animate-on-scroll">
+        {{ "contact.heading" | translate }}
       </h1>
       <p class="max-w-2xl mx-auto text-xl text-gray-400">
         {{ "contact.readyToStart" | translate }}
@@ -197,7 +197,7 @@
         <button
           type="submit"
           [disabled]="!contactForm.valid || isSubmitting"
-          class="w-full h-12 rounded-lg bg-blue-600 text-white font-medium transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          class="w-full h-12 rounded-lg bg-blue-600 text-white font-medium transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cta-button"
         >
           {{ "contact.sendMessage" | translate }}
         </button>

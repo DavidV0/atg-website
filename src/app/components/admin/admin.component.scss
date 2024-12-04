@@ -77,3 +77,73 @@
 .delete-button:hover {
   background-color: #c82333;
 }
+
+.quill-wrapper {
+  ::ng-deep {
+    .ql-toolbar.ql-snow {
+      border-color: rgba(255, 255, 255, 0.1);
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      background: rgba(0, 0, 0, 0.3);
+      
+      .ql-formats {
+        button, .ql-picker {
+          color: #fff;
+          
+          .ql-stroke {
+            stroke: #fff;
+          }
+          
+          .ql-fill {
+            fill: #fff;
+          }
+          
+          &:hover {
+            color: #60a5fa;
+            
+            .ql-stroke {
+              stroke: #60a5fa;
+            }
+            
+            .ql-fill {
+              fill: #60a5fa;
+            }
+          }
+        }
+        
+        .ql-picker-label {
+          color: #fff;
+          
+          &:hover {
+            color: #60a5fa;
+          }
+        }
+      }
+    }
+    
+    .ql-container.ql-snow {
+      border-color: rgba(255, 255, 255, 0.1);
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      min-height: 200px;
+    }
+    
+    .ql-editor {
+      &.ql-blank::before {
+        color: rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-fade-out {
+  animation: fadeOut 3s forwards;
+}

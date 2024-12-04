@@ -10,10 +10,10 @@
   </div>
 
   <!-- FAQ content -->
-  <div class="relative container mx-auto px-4 pt-32 pb-24">
+  <div class="relative container mx-auto px-4 pt-48 pb-24">
     <div class="text-center mb-16">
       <div
-        class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm backdrop-blur-sm mb-8"
+        class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm backdrop-blur-sm mb-8 hero-badge"
       >
         <span
           class="size-4 rounded-full bg-blue-500/10 flex items-center justify-center"
@@ -32,12 +32,13 @@
 
     <div class="max-w-3xl mx-auto space-y-6">
       <div
-        *ngFor="let item of faqItems"
-        class="group relative rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden"
+        *ngFor="let item of faqItems; let i = index"
+        class="group relative rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden slide-in-right"
+        [style.animation-delay]="i * 100 + 'ms'"
       >
         <button
           (click)="item.isOpen = !item.isOpen"
-          class="w-full px-6 py-4 text-left flex justify-between items-center"
+          class="w-full px-6 py-4 text-left flex justify-between items-center pulse-glow"
         >
           <span class="font-medium">{{ item.question | translate }}</span>
           <span
@@ -58,7 +59,7 @@
       </p>
       <a
         routerLink="/contact"
-        class="inline-flex h-12 items-center justify-center rounded-md bg-blue-600 px-8 text-base font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        class="inline-flex h-12 items-center justify-center rounded-md bg-blue-600 px-8 text-base font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cta-button"
       >
         {{ "faq.contactUs" | translate }}
       </a>

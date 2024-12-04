@@ -1,52 +1,40 @@
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: 20vh;
+.post-content {
+  ::ng-deep {
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    a {
+      color: #60a5fa;
+      text-decoration: underline;
+      
+      &:hover {
+        color: #93c5fd;
+      }
+    }
+  }
 }
 
-h1 {
-  color: #333;
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
 
-.bg-white {
-  background-color: #fff;
-  border-radius: 8px;
-  transition: box-shadow 0.3s ease;
-}
-
-.text-gray-500 {
-  color: #666;
-}
-
-.text-black {
-  color: #000;
-}
-
-p,
-h2,
-div {
-  color: #333;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.hover\:shadow-lg:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.more-button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.more-button:hover {
-  background-color: #0056b3;
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
