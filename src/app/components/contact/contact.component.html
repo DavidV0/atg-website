@@ -10,7 +10,7 @@
   </div>
 
   <!-- Contact content -->
-  <div class="relative container mx-auto px-4 pt-32 pb-24">
+  <div class="relative container mx-auto px-4 pt-48 pb-24">
     <div class="text-center mb-16">
       <div
         class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm backdrop-blur-sm mb-8 hero-badge"
@@ -21,19 +21,19 @@
           ✨
         </span>
         <span class="text-white/80">{{
-          "contact.title" | translate
+          "contact.getInTouch" | translate
         }}</span>
       </div>
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 animate-on-scroll">
-        {{ "contact.heading" | translate }}
+        {{ "contact.letsBuild" | translate }}
       </h1>
-      <p class="max-w-2xl mx-auto text-xl text-gray-400">
+      <p class="max-w-2xl mx-auto text-xl text-gray-400 animate-on-scroll stagger-delay-1">
         {{ "contact.readyToStart" | translate }}
       </p>
     </div>
 
     <div class="max-w-2xl mx-auto">
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6 animate-on-scroll stagger-delay-2">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Name Field -->
           <div>
@@ -219,9 +219,9 @@
         </div>
       </form>
 
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 animate-on-scroll stagger-delay-3">
         <div
-          class="text-center p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm"
+          class="text-center p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover-lift"
         >
           <h3 class="font-medium mb-2">
             <i class="fas fa-envelope mr-2"></i
@@ -232,7 +232,7 @@
           >
         </div>
         <div
-          class="text-center p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm"
+          class="text-center p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover-lift"
         >
           <h3 class="font-medium mb-2">
             <i class="fas fa-phone-alt mr-2"></i
@@ -243,7 +243,7 @@
           </a>
         </div>
         <div
-          class="text-center p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm"
+          class="text-center p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover-lift"
         >
           <h3 class="font-medium mb-2">
             <i class="fas fa-map-marker-alt mr-2"></i

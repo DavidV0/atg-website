@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import emailjs from '@emailjs/browser';
 import {
   FormBuilder,
@@ -17,13 +17,18 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   successMessage: string | null = null;
   errorMessage: string | null = null;
   isSubmitting: boolean = false;
+  isBrowser: boolean;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    @Inject(PLATFORM_ID) platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -34,6 +39,34 @@ export class ContactComponent {
         [Validators.required, Validators.pattern('^\\+?[0-9]{10,15}$')],
       ],
     });
+  }
+
+  ngOnInit() {
+    if (this.isBrowser) {
+      this.initScrollAnimations();
+    }
+  }
+
+  private initScrollAnimations() {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-in');
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '50px',
+        }
+      );
+
+      document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+        observer.observe(element);
+      });
+    }
   }
 
   onSubmit() {
