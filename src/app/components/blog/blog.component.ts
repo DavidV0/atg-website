@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { BlogService } from '../../services/blog.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { ScrollAnimationService } from '../../services/scroll-animation.service';
+import { Observable, of } from 'rxjs';
+import { tap, catchError, timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-blog',
@@ -18,31 +16,17 @@ import { ScrollAnimationService } from '../../services/scroll-animation.service'
   styleUrl: './blog.component.scss',
 })
 export class BlogComponent implements OnInit {
-  blogPosts$: Observable<any[]> = this.blogService.getBlogPosts().pipe(
-    tap(() => {
-      this.loading = false;
-      this.error = null;
-    }),
-    catchError(err => {
-      this.loading = false;
-      this.error = 'Failed to load blog posts. Please try again later.';
-      return of([]);
-    })
-  );
+  blogPosts$: Observable<any[]>;
   loading = true;
   error: string | null = null;
 
   constructor(
     private blogService: BlogService,
     private sanitizer: DomSanitizer,
-    private router: Router,
-    private scrollAnimationService: ScrollAnimationService
-  ) {}
-
-  ngOnInit() {
-    this.scrollAnimationService.initScrollAnimations();
-    this.loading = true;
+    private router: Router
+  ) {
     this.blogPosts$ = this.blogService.getBlogPosts().pipe(
+      timeout(5000),
       tap(() => {
         this.loading = false;
         this.error = null;
@@ -53,6 +37,10 @@ export class BlogComponent implements OnInit {
         return of([]);
       })
     );
+  }
+
+  ngOnInit() {
+    // Remove initialization from here since it's now in constructor
   }
 
   getSanitizedContent(content: string): SafeHtml {

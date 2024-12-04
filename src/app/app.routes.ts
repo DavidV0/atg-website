@@ -22,6 +22,10 @@ export const routes: Routes = [
   { path: 'privacy', component: PrivacyComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:id', component: BlogDetailComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  {
+    path: 'admin',
+    loadComponent: () => import('./components/admin/admin.component')
+      .then(m => m.AdminComponent)
+  },
   { path: 'login', component: LoginComponent },
 ];
